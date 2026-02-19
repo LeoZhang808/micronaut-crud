@@ -24,11 +24,11 @@ jobs:
           MYSQL_DATABASE: mn_playground
         ports:
           - 3306:3306
-        options: 
-          - "--health-cmd=mysqladmin ping -h 127.0.0.1 -uroot -ppassword --silent"
-          - "--health-interval=10s"
-          - "--health-timeout=5s"
-          - "--health-retries=10"
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -uroot -ppassword --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 21
